@@ -19,10 +19,16 @@
 ## Project Description
  > Your project description should summarize the project you are proposing. Be sure to include
  > * Why is it important or interesting to you?
+ >   * This project is important because it gives us an opportunity to use these design patterns in a meaningful way.
  > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
+ >   * C++, possibly mySQL for database management.  Perhaps even QT if we want to implement a GUI.
  >   * [toolname](link) - Short description
  > * What will be the input/output of your project?
+ >   * input will be taken from user during runtime and stored in a textfile or database.  will be possible to output specific parts and whole database in runtime  
  > * What are the three design patterns you will be using. For each design pattern you must:
+ >   * Composite        - to implement a directory of different types of employees
+ >   * Strategy         - to execute code during runtime based on what type of employee is executing it
+ >   * Abstract Factory - to build our specific types of employees and our directory
  >   * Explain in 3 - 5 sentences why you picked this pattern and what feature you will implement with it
  > * This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
 
