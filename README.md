@@ -17,20 +17,13 @@
  > * Each member of the group **must** be committing code regularly and make sure their code is correctly attributed to them. We will be checking attributions to determine if there was equal contribution to the project.
 
 ## Project Description
- > Your project description should summarize the project you are proposing. Be sure to include
- > * Why is it important or interesting to you?
- >   * This project is important because it gives us an opportunity to use these design patterns in a meaningful way.
- > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
- >   * C++, possibly mySQL for database management.  Perhaps even QT if we want to implement a GUI.
- >   * [toolname](link) - Short description
- > * What will be the input/output of your project?
- >   * input will be taken from user during runtime and stored in a textfile or database.  will be possible to output specific parts and whole database in runtime  
- > * What are the three design patterns you will be using. For each design pattern you must:
- >   * Composite        - to implement a directory of different types of employees
- >   * Strategy         - to execute code during runtime based on what type of employee is executing it
- >   * Abstract Factory - to build our specific types of employees and our directory
- >   * Explain in 3 - 5 sentences why you picked this pattern and what feature you will implement with it
- > * This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
+We are planning to demonstrate our ability to use these design patterns by implementing them into an Employee Directory program.  This program will be written in C++ and utilize text files, possibly SQL, for database management.  This program will be able to start from scratch or import an existing database and allow the user manage the employee directory.  This includes adding and removing employees as well as modifying and displaying them in various ways.  Each employee will also contain data regarding that unique employee, such as salary, hire date etc.  The user will interact with the program via the terminal and will be given plenty of useful commands to use the program and display and modify the data as needed.  The program will output all changes to the database if the user wishes to do so.  This program will implement the following design patterns: Composite, Strategy, and Abstract Factory.
+
+Composite - The program will implement the composite design pattern by creating a base class for all types of employees.  Each specific type of Employee will inherit from the base Employee class.  We picked this pattern for this purpose because it seems to fit perfectly with the idea.  The user will have access to all employees through the composite class. 
+
+Strategy - This program will make use of the strategy design pattern by implementing functions that rely on pointers to the base employee class.  These functions will act accordingly based on what kind of employee is calling the function at runtime.  We chose this pattern because of how well it works with the idea of polymorphism and composite classes.
+
+Abstract Factory - This program will implement the Abstract Factory design pattern in order to instantiate the different types of employees.  We chose this pattern because of how well it synergizes with the previous design patterns and the concept of polymorphism overall.  The abstract factory is the perfect way to implement similar objects that all derive from a similar base class.  
 
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to 
