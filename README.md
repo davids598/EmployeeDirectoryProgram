@@ -9,8 +9,6 @@ Composite - The program will implement the composite design pattern by creating 
 
 Strategy - This program will make use of the strategy design pattern by implementing functions that rely on pointers to the base employee class.  These functions will act accordingly based on what kind of employee is calling the function at runtime.  We chose this pattern because of how well it works with the idea of polymorphism and composite classes.
 
-Abstract Factory - This program will implement the Abstract Factory design pattern in order to instantiate the different types of employees.  We chose this pattern because of how well it synergizes with the previous design patterns and the concept of polymorphism overall.  The abstract factory is the perfect way to implement similar objects that all derive from a similar base class.  
-
 ## Phase II
 
  > In addition to completing the "Class Diagram" section below, you will need to 
