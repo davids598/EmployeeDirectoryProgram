@@ -12,7 +12,7 @@ Strategy - This program will make use of the strategy design pattern by implemen
 ## Phase II
 
 ## Class Diagram
-![Class Diagram](https://github.com/cs100/final-project-sspon001/blob/master/images/diagram.png)
+![Class Diagram](https://github.com/cs100/final-project-sspon001/blob/master/images/class_diagram.png)
 
  In this program, we will use the strategy design pattern to implement the sorting function as well as our print function to display the data.  The employeeDirectory class will rely on a vector of Employee object pointers to store different types of employees.  The user will be able to sort the employees in 3 different ways, by name, salary, or department.  The user will also be able to print in 3 different ways.  They can print a single employee, a whole department, or the entire directory.  An administrator, someone who has logged into the program with credentials, can add employees, remove employees, or modify existing employees.
  
