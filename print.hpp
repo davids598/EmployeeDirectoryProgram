@@ -27,14 +27,8 @@ class listPrint : public Printer {
 
 class treePrint : public Printer {
 	public:
-		        Employee* getCEOpointer (employeeDirectory* d){
-			for(auto it : d->getDirectory()){
-				if(it->getTitle() == "CEO") return it ;
-			}
-			return 0 ;
-		}
 		virtual void print(employeeDirectory* d) {
-			Employee* CEOpointer = getCEOpointer(d) ;
+			Employee* CEOpointer = d->getCEOpointer() ;
 			employeeDirectory* CEO, departmentHeads ;
 			vector<employeeDirectory*> temp ;
 			CEO = new employeeDirectory(CEOpointer) ;
