@@ -12,7 +12,7 @@ using namespace std;
         this->lastName = "";
         this->jobTitle = "";
         this->salary = 0.0;
-        this->hireDate = 0;
+        this->hireDate = Date(0,0,0);
         this->manager = nullptr;
     }
 
@@ -21,7 +21,7 @@ using namespace std;
         this->lastName = lName;
         this->jobTitle = t;
         this->salary = d;
-        this->hireDate = 0.0;
+        this->hireDate = Date(0,0,0);
         this->manager = nullptr;
     }
 
