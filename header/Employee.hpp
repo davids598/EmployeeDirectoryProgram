@@ -11,22 +11,23 @@ class Employee {
 private:
     string firstName, lastName, jobTitle;
     double salary;
-    Date hireDate;
+    Date* hireDate;
     Employee* manager;
     vector<Employee*> employees;
 public:
     Employee();
     Employee(string fName, string lName, string t, double d);
+    ~Employee();
     string getName();
     string getTitle();
     double getSalary();
-    Date getHireDate();
+    Date* getHireDate();
     vector<Employee*> getEmployees();
 
     void setName(string fName, string lname);
     void setTitle(string t);
     void setSalary(double d);
-    void setHireDate(Date d);
+    void setHireDate(Date* d);
 };
 
 #endif

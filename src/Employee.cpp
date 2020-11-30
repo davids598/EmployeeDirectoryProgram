@@ -12,7 +12,8 @@ using namespace std;
         this->lastName = "";
         this->jobTitle = "";
         this->salary = 0.0;
-        this->hireDate = Date(0,0,0);
+        Date* date = new Date(0,0,0);
+        this->hireDate = date;
         this->manager = nullptr;
     }
 
@@ -21,8 +22,14 @@ using namespace std;
         this->lastName = lName;
         this->jobTitle = t;
         this->salary = d;
-        this->hireDate = Date(0,0,0);
+        Date* date = new Date(0,0,0);
+        this->hireDate = date;
         this->manager = nullptr;
+    }
+
+    Employee::~Employee() {
+        delete hireDate;
+        delete manager;
     }
 
     string Employee::getName() {
@@ -37,7 +44,7 @@ using namespace std;
         return salary;
     }
 
-    Date Employee::getHireDate() {
+    Date* Employee::getHireDate() {
         return hireDate;
     }
 
@@ -58,7 +65,7 @@ using namespace std;
         this->salary = s;
     }
 
-    void Employee::setHireDate(Date d) {
+    void Employee::setHireDate(Date* d) {
         this->hireDate = d;
     }
 

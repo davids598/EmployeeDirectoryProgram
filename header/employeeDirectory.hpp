@@ -3,6 +3,9 @@
 
 #include <vector>
 #include <iostream>
+#include "Employee.hpp"
+#include "Date.hpp"
+
 
 using namespace std;
 
@@ -24,5 +27,5 @@ public:
     void editEmployee(Employee* e);
     void sortEmployees();
     void print(employeeDirectory d);
-}
+};
 #endif

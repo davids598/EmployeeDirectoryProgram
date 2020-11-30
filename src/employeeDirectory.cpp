@@ -4,6 +4,8 @@
 #include <iostream>
 #include <vector>
 #include "../header/employeeDirectory.hpp"
+#include "../header/Employee.hpp"
+#include "../header/Date.hpp"
 
 using namespace std;
 
@@ -27,37 +29,38 @@ Employee* employeeDirectory::getCEOPointer() {
     return this->CEOPointer;
 }
 
-Employee* employeeDirectoy::getEmployee(string name) {
+Employee* employeeDirectory::getEmployee(string name) {
     for (int i = 0; i < directory.size(); ++i) {
-        if (directory.at(i)->firstName + " " + directory.at(i)->lastName == name) {
+        if (directory.at(i)->getName() == name) {
             return directory.at(i);
         }
     }
     return nullptr;
 }
 
-void Employee::addEmployee(Employee* e) {
+void employeeDirectory::addEmployee(Employee* e) {
     this->directory.push_back(e);
 }
 
-void Employee::removeEmployee(Employee* e) {
+void employeeDirectory::removeEmployee(Employee* e) {
+    vector<Employee*>::iterator v;
     int position = -1;
     for (unsigned i = 0; i < directory.size(); ++i) {
         if (e == directory.at(i)) {
             position = i;
         }
     }
-    iterator v = directory.begin();
+    v = directory.begin();
     directory.erase(v + position);
 }
 
-void Employee::print(employeeDirectory d) {
+void employeeDirectory::print(employeeDirectory d) {
     for (int i = 0; i < d.directory.size(); ++i) {
         cout << i + 1 + ". " + d.directory.at(i)->getName() + " - " + d.directory.at(i)->getTitle();
     }
 }
 
-void Employee::editEmployee(Employee* e) {
+void employeeDirectory::editEmployee(Employee* e) {
     int choice = 0;
     while (choice != -1) {
         cout << "Enter a -1 to quit editing an employee" << endl;
@@ -71,7 +74,7 @@ void Employee::editEmployee(Employee* e) {
             string fName, lName;
             cout << "Enter the employee's new first and last name" << endl;
             cin >> fName, lName;
-            e->setName(fname, lname);
+            e->setName(fName, lName);
             cout << "Name has been changed!" << endl;
         }
         else if (choice == 2) {
@@ -93,7 +96,7 @@ void Employee::editEmployee(Employee* e) {
             cout << "Enter the employee's new hire date\n"
             << "The format is day month year" << endl;
             cin >> d >> m >> y;
-            Date temp = Date(d, m , y);
+            Date* temp = new Date(d, m , y);
             e->setHireDate(temp);
         }
         else {
