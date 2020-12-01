@@ -16,7 +16,8 @@ private:
     vector<Employee*> employees;
 public:
     Employee();
-    Employee(string fName, string lName, string t, double d);
+    Employee(string fName, string lName, string t, double d, int m, int day, int y, Employee* manager);
+    Employee(string fName, string LName, string t, double d, Date* hDate, Employee* manager);
     ~Employee();
     string getName();
     string getTitle();

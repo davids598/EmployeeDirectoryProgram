@@ -12,19 +12,26 @@ using namespace std;
         this->lastName = "";
         this->jobTitle = "";
         this->salary = 0.0;
-        Date* date = new Date(0,0,0);
-        this->hireDate = date;
+        this->hireDate = nullptr;
         this->manager = nullptr;
     }
 
-    Employee::Employee(string fName, string lName, string t, double d) {
+    Employee::Employee(string fName, string lName, string t, double d, int m, int day, int y, Employee* _manager){
         this->firstName = fName;
         this->lastName = lName;
         this->jobTitle = t;
         this->salary = d;
-        Date* date = new Date(0,0,0);
-        this->hireDate = date;
-        this->manager = nullptr;
+        this->hireDate = new Date(m, day, y) ;
+        this->manager = _manager ;
+    }
+
+    Employee::Employee(string fName, string lName, string t, double d, Date* hDate, Employee* _manager){
+	this->firstName = fName ;
+	this->lastName = lName ;
+	this->jobTitle = t ;
+	this->salary = d ;
+	this->hireDate = hDate ;
+	this->manager = _manager ;
     }
 
     Employee::~Employee() {

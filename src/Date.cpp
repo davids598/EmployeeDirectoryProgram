@@ -12,10 +12,10 @@ Date::Date(int month, int day, int year){
         this->d = day;
         this->y = year;
 }
-ostream& Date::operator<<(ostream& os){
-        os << this->m << "/" << this->d << "/" << this->y;
-        return os;
-}
 
+ostream & operator << (ostream &out, const Date &_date){
+	out << _date.m << "/" << _date.d << "/" << _date.y ;
+	return out ;
+}
 
 #endif

@@ -4,7 +4,6 @@
 #include <iostream>
 #include <vector>
 #include "../header/employeeDirectory.hpp"
-#include "../header/Employee.hpp"
 #include "../header/Date.hpp"
 
 using namespace std;
@@ -53,11 +52,11 @@ void employeeDirectory::removeEmployee(Employee* e) {
     v = directory.begin();
     directory.erase(v + position);
 }
-
-void employeeDirectory::print(employeeDirectory d) {
-    for (int i = 0; i < d.directory.size(); ++i) {
-        cout << i + 1 + ". " + d.directory.at(i)->getName() + " - " + d.directory.at(i)->getTitle();
-    }
+void employeeDirectory::set_print_strat(Printer* p){
+	this->printStrat = p ;
+}
+void employeeDirectory::print() {
+    this->printStrat->print(this) ;
 }
 
 void employeeDirectory::editEmployee(Employee* e) {
@@ -105,5 +104,36 @@ void employeeDirectory::editEmployee(Employee* e) {
      }
 }
 
+void listPrint::print(employeeDirectory* d) {
+        for(auto it : d->getDirectory()){
+                std::cout << it->getName()     << "\n" ;
+                std::cout << it->getTitle()    << "\n" ;
+                std::cout  << *(it->getHireDate()) << "\n" ;
+                std::cout  << "$" << it->getSalary() << "\n" ;
+        }
+}
+
+
+void treePrint::print(employeeDirectory* d){
+        Employee* CEOpointer = d->getCEOPointer() ;
+        employeeDirectory* CEO ;
+        employeeDirectory* departmentHeads ;
+        vector<employeeDirectory*> temp ;
+        CEO = new employeeDirectory(CEOpointer) ;
+        Printer* p = new listPrint() ;
+        p->print(CEO) ; std::cout << "\n" ;
+        departmentHeads = new employeeDirectory(CEOpointer->getEmployees()) ;
+        for(auto i : departmentHeads->getDirectory()){
+                std::cout << i->getName() << "\n" ;
+                std::cout << i->getTitle() << "\n" ;
+                std::cout << i->getHireDate() << "\n" ;
+                std::cout << "$" ;
+                std::cout << i->getSalary() << "\n\n" ;
+                std::cout << "Manages:\n\n" ;
+                temp.push_back(new employeeDirectory(i->getEmployees())) ;
+                p->print(temp.back()) ;
+                std::cout << "\n" ;
+        }
+}
 
 #endif

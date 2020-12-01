@@ -11,7 +11,7 @@ class Date {
                 int m, d, y;
         public:
                 Date(int month, int day, int year);
-                ostream& operator<<(ostream& os);
+		friend ostream & operator << (ostream &out, const Date &_date) ;
 };
 
 #endif
