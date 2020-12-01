@@ -5,6 +5,7 @@
 #include <iostream>
 #include "../src/Employee.cpp"
 #include "Date.hpp"
+#include <map>
 
 using namespace std;
 
@@ -19,6 +20,7 @@ private:
    // sortStrategy* sortStrat;
     Printer* printStrat;
     Employee* CEOPointer;
+    map<string, vector<Employee*>> departmentMap ;
 
 public:
     employeeDirectory();
@@ -31,7 +33,8 @@ public:
     void editEmployee(Employee* e);
     void sortEmployees();
     void set_print_strat(Printer* p) ;
-    vector<Employee*> getDirectory() { return this->directory ; } ;
+    vector<Employee*> getDirectory() { return this->directory ; } 
+    map<string, vector<Employee*>> getMap() { return this->departmentMap ; } 
     void print();
 };
 
@@ -48,8 +51,8 @@ class listPrint : public Printer {
 } ;
 
 class treePrint : public Printer {
-        public:
-                virtual void print(employeeDirectory* d) ;
+	public:
+		virtual void print(employeeDirectory* d) ;	
 		~treePrint() { } ;
 } ;
 

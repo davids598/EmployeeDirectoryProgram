@@ -13,30 +13,29 @@ using namespace std;
         this->jobTitle = "";
         this->salary = 0.0;
         this->hireDate = nullptr;
-        this->manager = nullptr;
+        this->department = "" ;
     }
 
-    Employee::Employee(string fName, string lName, string t, double d, int m, int day, int y, Employee* _manager){
+    Employee::Employee(string fName, string lName, string t, double d, int m, int day, int y, string _department){
         this->firstName = fName;
         this->lastName = lName;
         this->jobTitle = t;
         this->salary = d;
         this->hireDate = new Date(m, day, y) ;
-        this->manager = _manager ;
+        this->department = _department ;
     }
 
-    Employee::Employee(string fName, string lName, string t, double d, Date* hDate, Employee* _manager){
+    Employee::Employee(string fName, string lName, string t, double d, Date* hDate, string _department){
 	this->firstName = fName ;
 	this->lastName = lName ;
 	this->jobTitle = t ;
 	this->salary = d ;
 	this->hireDate = hDate ;
-	this->manager = _manager ;
+	this->department = _department ;
     }
 
     Employee::~Employee() {
         delete hireDate;
-        delete manager;
     }
 
     string Employee::getName() {
@@ -55,8 +54,12 @@ using namespace std;
         return hireDate;
     }
 
+    string Employee::getDepartment() {
+	return this->department ;
+    }
+
     vector<Employee*> Employee::getEmployees() {
-        return employees;
+        return this->employees;
     }
 
     void Employee::setName(string fName, string lName) {
@@ -74,6 +77,10 @@ using namespace std;
 
     void Employee::setHireDate(Date* d) {
         this->hireDate = d;
+    }
+
+    void Employee::setDepartment(string _d) {
+	this->department = _d ;
     }
 
 #endif

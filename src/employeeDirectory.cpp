@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
+#include <string>
 #include "../header/employeeDirectory.hpp"
 #include "../header/Date.hpp"
 
@@ -16,12 +18,18 @@ employeeDirectory::employeeDirectory(vector<Employee*> d) {
     this->CEOPointer = d.at(0);
     for (int i = 0; i < d.size(); ++i) {
         directory.push_back(d.at(i));
+	string key = directory.back()->getDepartment() ;	
+	std::transform(key.begin(), key.end(), key.begin(), ::toupper) ;
+	departmentMap[key].push_back(d.at(i)) ;
     }
 }
 
 employeeDirectory::employeeDirectory(Employee* e) {
     this->CEOPointer = e;
     this->directory.push_back(e);
+    string key = e->getDepartment() ;
+    transform(key.begin(), key.end(), key.begin(), ::toupper) ;
+    this->departmentMap[key].push_back(e) ;
 }
 
 Employee* employeeDirectory::getCEOPointer() {
@@ -39,6 +47,9 @@ Employee* employeeDirectory::getEmployee(string name) {
 
 void employeeDirectory::addEmployee(Employee* e) {
     this->directory.push_back(e);
+    string key = directory.back()->getDepartment() ;
+    std::transform(key.begin(), key.end(), key.begin(), ::toupper) ;
+    this->departmentMap[key].push_back(e) ;
 }
 
 void employeeDirectory::removeEmployee(Employee* e) {
@@ -51,7 +62,18 @@ void employeeDirectory::removeEmployee(Employee* e) {
     }
     v = directory.begin();
     directory.erase(v + position);
+    string key = e->getDepartment() ;
+    transform(key.begin(), key.end(), key.begin(), ::toupper) ;
+    int j = 0 ;
+    for(auto it : departmentMap[key]){
+	j++ ;
+	if(it == e){
+		departmentMap[key].erase(departmentMap[key].begin() + j) ;
+		break ;
+	}
+   }	
 }
+
 void employeeDirectory::set_print_strat(Printer* p){
 	this->printStrat = p ;
 }
@@ -105,35 +127,39 @@ void employeeDirectory::editEmployee(Employee* e) {
 }
 
 void listPrint::print(employeeDirectory* d) {
+	std::cout << "\nList Print\n" ;
+	std::cout << "-------------------------------------------\n" ;
         for(auto it : d->getDirectory()){
                 std::cout << it->getName()     << "\n" ;
+		std::cout << it->getDepartment() << "\n" ;
                 std::cout << it->getTitle()    << "\n" ;
                 std::cout  << *(it->getHireDate()) << "\n" ;
-                std::cout  << "$" << it->getSalary() << "\n" ;
+                std::cout  << "$" << it->getSalary() << "\n\n" ;
         }
+	std::cout << "-------------------------------------------\n" ;
 }
 
-
 void treePrint::print(employeeDirectory* d){
-        Employee* CEOpointer = d->getCEOPointer() ;
-        employeeDirectory* CEO ;
-        employeeDirectory* departmentHeads ;
-        vector<employeeDirectory*> temp ;
-        CEO = new employeeDirectory(CEOpointer) ;
-        Printer* p = new listPrint() ;
-        p->print(CEO) ; std::cout << "\n" ;
-        departmentHeads = new employeeDirectory(CEOpointer->getEmployees()) ;
-        for(auto i : departmentHeads->getDirectory()){
-                std::cout << i->getName() << "\n" ;
-                std::cout << i->getTitle() << "\n" ;
-                std::cout << i->getHireDate() << "\n" ;
-                std::cout << "$" ;
-                std::cout << i->getSalary() << "\n\n" ;
-                std::cout << "Manages:\n\n" ;
-                temp.push_back(new employeeDirectory(i->getEmployees())) ;
-                p->print(temp.back()) ;
-                std::cout << "\n" ;
-        }
+	std::cout << "\nTree Print\n" ;
+	std::cout << "-------------------------------------------\n" ;
+	std::vector<string> keys ;
+	map<string, vector<Employee*>> m = d->getMap() ;
+	for(auto it : m){
+		keys.push_back(it.first) ;	
+	}
+	std::cout << "Departments: \n" ;
+	std::cout << "-------------------------------------------\n" ;
+	for(auto i : keys){
+		std::cout << i << ":\n\n" ;
+		for(auto j : m[i]){
+			std::cout << j->getName() << "\n" ;
+			std::cout << j->getTitle() << "\n" ;
+			std::cout << *(j->getHireDate()) << "\n" ;
+			std::cout << "$" << j->getSalary() << "\n\n" ;
+		}
+		std::cout << "-------------------------------------------\n" ;
+	}
+	
 }
 
 #endif

@@ -12,15 +12,16 @@ private:
     string firstName, lastName, jobTitle;
     double salary;
     Date* hireDate;
-    Employee* manager;
+    string department ;
     vector<Employee*> employees;
 public:
     Employee();
-    Employee(string fName, string lName, string t, double d, int m, int day, int y, Employee* manager);
-    Employee(string fName, string LName, string t, double d, Date* hDate, Employee* manager);
+    Employee(string fName, string lName, string t, double d, int m, int day, int y, string _department) ;
+    Employee(string fName, string LName, string t, double d, Date* hDate, string _department) ;
     ~Employee();
     string getName();
     string getTitle();
+    string getDepartment() ;
     double getSalary();
     Date* getHireDate();
     vector<Employee*> getEmployees();
@@ -29,6 +30,7 @@ public:
     void setTitle(string t);
     void setSalary(double d);
     void setHireDate(Date* d);
+    void setDepartment(string _d) ;
 };
 
 #endif
