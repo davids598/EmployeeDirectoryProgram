@@ -1,4 +1,4 @@
-#include "src/employeeDirectory.cpp"
+#include "header.h"
 
 int main(){
 	Employee* sean = new Employee("Sean", "S", "Programmer", 50000, 11, 30, 2020, "CS") ;
@@ -10,8 +10,12 @@ int main(){
 	Printer* p = new listPrint();
 	e->set_print_strat(p) ;
 	e->print() ;
-	e->set_print_strat(new treePrint()) ;
+	delete p ;
+	p = new treePrint() ;
+	e->set_print_strat(p) ;
 	e->print() ;
+	delete e ;
+	delete p ;
 
 	return 0 ;
 }

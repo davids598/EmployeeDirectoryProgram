@@ -3,16 +3,12 @@
 
 #include <vector>
 #include <iostream>
-#include "../src/Employee.cpp"
-#include "Date.hpp"
 #include <map>
+#include "Date.hpp"
+#include "Employee.hpp"
+#include "Printer.hpp"
 
 using namespace std;
-
-class Printer ;
-class listPrint ;
-class treePrint ;
-class Employee ;
 
 class employeeDirectory {
 private:
@@ -36,24 +32,9 @@ public:
     vector<Employee*> getDirectory() { return this->directory ; } 
     map<string, vector<Employee*>> getMap() { return this->departmentMap ; } 
     void print();
+    ~employeeDirectory(){
+	for(int i = 0 ; i < this->directory.size() ; i++) delete this->directory.at(i) ;
+    }
 };
-
-class Printer {
-	public:
-		virtual void print(employeeDirectory* d) = 0 ;
-		virtual ~Printer() {}  ;
-} ;
-
-class listPrint : public Printer {
-        public:
-                virtual void print(employeeDirectory* d) ;
-		~listPrint() { }  ;
-} ;
-
-class treePrint : public Printer {
-	public:
-		virtual void print(employeeDirectory* d) ;	
-		~treePrint() { } ;
-} ;
 
 #endif

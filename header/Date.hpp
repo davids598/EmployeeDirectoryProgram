@@ -10,6 +10,7 @@ class Date {
         private:
                 int m, d, y;
         public:
+		Date() { this-> m = 0 ; this->d = 0 ; this->y = 0 ; }
                 Date(int month, int day, int year);
 		friend ostream & operator << (ostream &out, const Date &_date) ;
 };
