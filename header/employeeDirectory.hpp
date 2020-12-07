@@ -29,11 +29,10 @@ public:
     void removeEmployee(Employee* e);
     void editEmployee(Employee* e);
     void sortEmployees();
-    void set_print_strat(Printer* p) ;
     vector<string> getDepartments() ;
-    vector<Employee*> getDirectory() { return this->directory ; } 
+    vector<Employee*>* getDirectory() { return &this->directory ; } 
     map<string, vector<Employee*>>* getMap() { return &this->departmentMap ; } 
-    void print();
+    void print(Printer* p);
     ~employeeDirectory(){
 	for(int i = 0 ; i < this->directory.size() ; i++) delete this->directory.at(i) ;
     }

@@ -77,16 +77,15 @@ void employeeDirectory::removeEmployee(Employee* e) {
    }	
 }
 
-void employeeDirectory::set_print_strat(Printer* p){
-	this->printStrat = p ;
-}
-void employeeDirectory::print() {
-    this->printStrat->print(this) ;
+void employeeDirectory::print(Printer* _p) {
+	this->printStrat = _p ;
+	this->printStrat->print(this) ;
 }
 
 vector<string> employeeDirectory::getDepartments(){
 	vector<string> keys ;
-	for(auto it : *this->getMap()) keys.push_back(it.first) ;
+	map<string, vector<Employee*>>* m = this->getMap() ;
+	for(auto it : *m) keys.push_back(it.first) ;
 	return keys ;
 }
 

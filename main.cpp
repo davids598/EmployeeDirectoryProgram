@@ -7,15 +7,48 @@ int main(){
 	employeeDirectory* e = new employeeDirectory(sean) ;
 	e->addEmployee(bean) ;
 	e->addEmployee(jean) ;
-	Printer* p = new sortBySalary(new listPrint()) ;
+/*	
+	cout << "normal list print \n\n" ;	
+	Printer* p = new listPrint() ;
 	e->set_print_strat(p) ;
 	e->print() ;
 	delete p ;
-	p = new sortBySalary(new treePrint()) ;
+	
+	cout << "salary sort list print\n\n" ;
+	p = new sortBySalary(new listPrint()) ;
 	e->set_print_strat(p) ;
 	e->print() ;
-	delete e ;
 	delete p ;
 
+	cout << "name sort list print\n\n" ;
+	p = new sortByName(new listPrint()) ;
+	e->set_print_strat(p) ;
+	e->print() ;
+	delete p ;
+*/
+	Printer* p ;
+	cout << "normal tree print \n\n" ;
+	p = new treePrint() ;
+	e->print(p) ;
+	delete p ;
+
+	cout << "sortByName tree print \n\n" ;
+	p = new sortByName(new treePrint()) ;
+	e->print(p) ;
+	delete p ; 
+/*
+	cout << "low to high, name sort, tree print\n\n" ;
+	p = new LowToHigh(new sortByName(new treePrint())) ;
+	e->set_print_strat(p) ;
+	e->print() ;
+	delete p ;
+
+	cout << "name sort, tree print\n\n" ;
+	p = new sortByName(new treePrint()) ;
+	e->set_print_strat(p) ;
+	e->print() ;
+	
+*/
+	delete e ;
 	return 0 ;
 }

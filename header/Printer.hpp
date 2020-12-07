@@ -29,7 +29,7 @@ class sortDecorator : public Printer {
                 sortDecorator(Printer* _p) { this->p = _p ; } ;
 		virtual ~sortDecorator() { delete this->p ; }
                 virtual void print(employeeDirectory* d) { this->p->print(d) ; } ;            
-        private:
+        protected:
                 Printer* p ;
 } ;
 
@@ -54,10 +54,10 @@ class sortByHireDate : public sortDecorator{
                 virtual void print(employeeDirectory* d) ;
 } ;
 
-class HighToLow : public sortDecorator{
-        private:
-                HighToLow(Printer* _p) : sortDecorator(_p) { }
-                ~HighToLow() { } ;
+class LowToHigh : public sortDecorator{
+        public:
+                LowToHigh(Printer* _p) : sortDecorator(_p) { }
+                ~LowToHigh() { } ;
                 virtual void print(employeeDirectory* d) ;
 } ;
 
