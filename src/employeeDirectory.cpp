@@ -86,7 +86,7 @@ void employeeDirectory::print() {
 
 vector<string> employeeDirectory::getDepartments(){
 	vector<string> keys ;
-	for(auto it : this->getMap()) keys.push_back(it.first) ;
+	for(auto it : *this->getMap()) keys.push_back(it.first) ;
 	return keys ;
 }
 

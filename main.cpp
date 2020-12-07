@@ -11,7 +11,7 @@ int main(){
 	e->set_print_strat(p) ;
 	e->print() ;
 	delete p ;
-	p = new treePrint() ;
+	p = new sortBySalary(new treePrint()) ;
 	e->set_print_strat(p) ;
 	e->print() ;
 	delete e ;

@@ -24,8 +24,8 @@ void treePrint::print(employeeDirectory* d){
         std::cout << "\n              Tree Print\n" ;
         std::cout << "-------------------------------------------\n" ;
         std::vector<string> keys ;
-        map<string, vector<Employee*>> m = d->getMap() ;
-        for(auto it : m){
+        map<string, vector<Employee*>>* m = d->getMap() ;
+        for(auto it : *m){
                 keys.push_back(it.first) ;
         }
         std::cout << "Departments: \n" ;
@@ -33,7 +33,7 @@ void treePrint::print(employeeDirectory* d){
         for(auto i : keys){
                 std::cout << i << ":\n" ;
                 std::cout << "-------------------------------------------\n\n" ;
-                for(auto j : m[i]){
+                for(auto j : m->at(i)){
                         std::cout << j->getName() << "\n" ;
                         std::cout << j->getTitle() << "\n" ;
                         std::cout << *(j->getHireDate()) << "\n" ;
@@ -49,6 +49,8 @@ bool compareSalary(Employee* a, Employee* b){
 void sortBySalary::print(employeeDirectory* d){
 	employeeDirectory* temp ;
 	vector<Employee*> v = d->getDirectory() ;
+	map<string, vector<Employee*>>* m = d->getMap() ;
+	for(auto it : *m) sort(it.second.begin(), it.second.end(), compareSalary) ;
 	sort(v.begin(), v.end(), compareSalary) ;
 	temp = new employeeDirectory(v) ;
 	sortDecorator::print(temp) ;

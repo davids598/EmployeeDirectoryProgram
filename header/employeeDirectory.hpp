@@ -32,7 +32,7 @@ public:
     void set_print_strat(Printer* p) ;
     vector<string> getDepartments() ;
     vector<Employee*> getDirectory() { return this->directory ; } 
-    map<string, vector<Employee*>> getMap() { return this->departmentMap ; } 
+    map<string, vector<Employee*>>* getMap() { return &this->departmentMap ; } 
     void print();
     ~employeeDirectory(){
 	for(int i = 0 ; i < this->directory.size() ; i++) delete this->directory.at(i) ;
