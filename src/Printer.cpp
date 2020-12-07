@@ -2,6 +2,7 @@
 #include "../header/employeeDirectory.hpp"
 #include "../header/Employee.hpp"
 
+#include <algorithm>
 #include <vector>
 #include <string>
 #include <iostream>
@@ -42,4 +43,13 @@ void treePrint::print(employeeDirectory* d){
         }
 
 }
-
+bool compareSalary(Employee* a, Employee* b){
+	return a->getSalary() > b->getSalary() ;
+}
+void sortBySalary::print(employeeDirectory* d){
+	employeeDirectory* temp ;
+	vector<Employee*> v = d->getDirectory() ;
+	sort(v.begin(), v.end(), compareSalary) ;
+	temp = new employeeDirectory(v) ;
+	sortDecorator::print(temp) ;
+}

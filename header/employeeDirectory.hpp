@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <iostream>
+#include <string>
 #include <map>
 #include "Date.hpp"
 #include "Employee.hpp"
@@ -29,6 +30,7 @@ public:
     void editEmployee(Employee* e);
     void sortEmployees();
     void set_print_strat(Printer* p) ;
+    vector<string> getDepartments() ;
     vector<Employee*> getDirectory() { return this->directory ; } 
     map<string, vector<Employee*>> getMap() { return this->departmentMap ; } 
     void print();

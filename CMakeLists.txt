@@ -6,14 +6,10 @@ SET(CMAKE_CXX_STANDARD 11)
 
 ADD_EXECUTABLE(main
 	main.cpp
-	header.h
-	src/Employee.cpp
-	src/Printer.cpp
-	src/employeeDirectory.cpp
 	src/Date.cpp
-	header/Date.hpp
-	header/Employee.hpp
-	header/employeeDirectory.hpp
+	src/Employee.cpp
+	src/employeeDirectory.cpp
+	src/Printer.cpp
 )
 
 TARGET_LINK_LIBRARIES(main gtest)

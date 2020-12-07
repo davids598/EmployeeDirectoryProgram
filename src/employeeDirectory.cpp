@@ -84,6 +84,12 @@ void employeeDirectory::print() {
     this->printStrat->print(this) ;
 }
 
+vector<string> employeeDirectory::getDepartments(){
+	vector<string> keys ;
+	for(auto it : this->getMap()) keys.push_back(it.first) ;
+	return keys ;
+}
+
 void employeeDirectory::editEmployee(Employee* e) {
     int choice = 0;
     while (choice != -1) {

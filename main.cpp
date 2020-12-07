@@ -7,7 +7,7 @@ int main(){
 	employeeDirectory* e = new employeeDirectory(sean) ;
 	e->addEmployee(bean) ;
 	e->addEmployee(jean) ;
-	Printer* p = new listPrint();
+	Printer* p = new sortBySalary(new listPrint()) ;
 	e->set_print_strat(p) ;
 	e->print() ;
 	delete p ;
