@@ -78,6 +78,23 @@ void sortByName::print(employeeDirectory* d){
 	this->p->print(d) ;
 }
 
+bool compareDate(Employee* a, Employee* b){
+	return *a->getHireDate() > *b->getHireDate() ;
+}
+	
+void sortByHireDate::print(employeeDirectory* d){
+	vector<Employee*>* v = d->getDirectory() ;
+	map<string, vector<Employee*>>* m = d->getMap() ;
+	vector<string> key = d->getDepartments() ;
+	for(auto it : key){
+		vector<Employee*>& t = m->at(it) ;
+		sort(t.begin(), t.end(), compareDate) ;
+		m->at(it) = t ;
+	}
+	sort(v->begin(), v->end(), compareDate) ;
+	this->p->print(d) ;
+}
+
 void LowToHigh::print(employeeDirectory* d){
 	vector<Employee*>* temp = d->getDirectory() ;
 	reverse(temp->begin(), temp->end()) ;

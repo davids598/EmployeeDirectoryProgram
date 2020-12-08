@@ -52,7 +52,7 @@ using namespace std;
     }
 
     Date* Employee::getHireDate() {
-        return hireDate;
+        return this->hireDate;
     }
 
     string Employee::getDepartment() {
