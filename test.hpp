@@ -4,6 +4,16 @@
 #include "gtest/gtest.h"
 #include "header.h"
 
+TEST(PrintTestSuite, noEmployee_listPrint){
+	employeeDirectory* e = new employeeDirectory() ;
+	Printer* p = new listPrint() ;
+	testing::internal::CaptureStdout() ;
+	p->print(e) ;
+	std::string output = testing::internal::GetCapturedStdout() ;
+	std::string e_output = "\n              List Print\n-------------------------------------------\n-------------------------------------------\n" ;
+	EXPECT_EQ(output, e_output) ;
+}
+
 TEST(PrintTestSuite, singleEmployee_listPrint){
 	Employee* t = new Employee("John", "Smith", "Software Engineer", 50000, 12, 8, 2007, "Programming") ;
 	employeeDirectory* e = new employeeDirectory(t) ;
@@ -32,6 +42,16 @@ TEST(PrintTestSuite, manyEmployees_listPrint){
 	std::string e_output = "\n              List Print\n-------------------------------------------\nJohn Smith\nProgramming\nJr. Software Engineer\n12/8/2007\n$50000\n\nJean Smith\nProgramming\nSoftware Analyst\n5/22/2002\n$60000\n\nJerry Smith\nProgramming\nSenior Software Engineer\n11/11/1997\n$90000\n\nJason Smith\nProgramming\nFront End Developer\n8/14/2003\n$60000\n\n-------------------------------------------\n" ;
 
 	EXPECT_EQ(output, e_output) ;	
+}
+
+TEST(PrintTestSuite, noEmployee_treePrint){	
+	employeeDirectory* e = new employeeDirectory() ;
+	Printer* p = new treePrint() ;
+	testing::internal::CaptureStdout() ;
+	p->print(e) ;
+	std::string output = testing::internal::GetCapturedStdout() ;
+	std::string e_output = "\n              Tree Print\n-------------------------------------------\nDepartments: \n-------------------------------------------\n" ;	
+	EXPECT_EQ(output, e_output) ;
 }
 
 TEST(PrintTestSuite, singleEmployee_treePrint){
