@@ -11,6 +11,13 @@ ADD_EXECUTABLE(main
 	src/employeeDirectory.cpp
 	src/Printer.cpp
 )
+ADD_EXECUTABLE(test
+	test.cpp
+	src/Date.cpp
+	src/Employee.cpp
+	src/employeeDirectory.cpp
+	src/Printer.cpp
+)
 
-TARGET_LINK_LIBRARIES(main gtest)
-TARGET_COMPILE_DEFINITIONS(main PRIVATE gtest_disable_pthreads=ON)
+TARGET_LINK_LIBRARIES(test gtest)
+TARGET_COMPILE_DEFINITIONS(test PRIVATE gtest_disable_pthreads=ON)
