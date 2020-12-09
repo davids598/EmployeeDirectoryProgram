@@ -4,7 +4,6 @@ int main(){
 	employeeDirectory* e = new employeeDirectory() ;
 	Interface* i = new Interface(e) ;
 	i->mainMenu() ;
-	delete e ;
 	delete i ;
 	return 0 ;
 }

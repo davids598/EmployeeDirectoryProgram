@@ -116,7 +116,8 @@ void Interface::print(){
 		getline(cin, input) ;
 		if(this->e->getEmployee(input)){
 			employeeDirectory* t = new employeeDirectory(this->e->getEmployee(input)) ;
-			t->print(new listPrint) ;
+			t->print(new listPrint()) ;
+			delete t ;
 		}	
 		else{
 			cout << "\n\n**Error** - Employee \"" << input << "\" was not found in the Directory.\n\n" ;
@@ -154,6 +155,7 @@ void Interface::print(){
 			else{
 				cout << "\n\n**Error** - Print Failed\n\n" ;
 			}
+			delete t ;
 		}
 	}
 	else if(input == "1"){

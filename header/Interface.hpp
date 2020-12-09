@@ -9,6 +9,12 @@ class Interface{
 	public:
 		Interface() { } 
 		Interface(employeeDirectory* _e) ;
+		~Interface() { 
+			if(this->e){
+				this->e->cleanup() ;
+				delete this->e ; 
+			}
+		}
 		void mainMenu() ;
 		void print_mainMenu() ;
 		void print_printSubMenu_1() ;
