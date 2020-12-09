@@ -135,13 +135,13 @@ void Interface::print(){
 			employeeDirectory* t = new employeeDirectory(this->e->getMap()->at(input)) ;	
 			this->print_printSubMenu_3() ;
 			getline(cin, input) ;
-			while(input != "1" || input != "2" || input != "3"){
+			while(input != "1" && input != "2" && input != "3"){
 				cout << "\n\n**Error** - Invalid Input, enter a single digit 1-3.\n\n" ;
 				getline(cin, input) ;
 			}
 			this->print_printSubMenu_4() ;
 			getline(cin, input2) ;
-			while(input2 != "1" || input2 != "2"){
+			while(input2 != "1" && input2 != "2"){
 				cout << "\n\n**Error** - Invalid Input, enter a single digit 1-2.\n\n" ;
 				getline(cin, input2) ;
 			}
