@@ -195,7 +195,7 @@ void Interface::print(){
 				else if(input4 == "2") e->print(new sortBySalary(new LowToHigh(new listPrint()))) ;
 				else cout << "\n\n**Error** - Print failed.\n\n" ;
 			}
-			else if(input4 == "3"){
+			else if(input3 == "3"){
 				if(input4 == "1") e->print(new sortByHireDate(new listPrint())) ;
 				else if(input4 == "2") e->print(new sortByHireDate(new LowToHigh(new listPrint()))) ;
 				else cout << "\n\n**Error** - Print failed.\n\n" ;
@@ -213,7 +213,7 @@ void Interface::print(){
 				else if(input4 == "2") e->print(new sortBySalary(new LowToHigh(new treePrint()))) ;
 				else cout << "\n\n**Error** - Print failed.\n\n" ;
 			}
-			else if(input4 == "3"){
+			else if(input3 == "3"){
 				if(input4 == "1") e->print(new sortByHireDate(new listPrint())) ;
 				else if(input4 == "2") e->print(new sortByHireDate(new LowToHigh(new treePrint()))) ;
 				else cout << "\n\n**Error** - Print failed.\n\n" ;
