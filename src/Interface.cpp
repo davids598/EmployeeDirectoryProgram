@@ -8,7 +8,7 @@ void Interface::print_mainMenu(){
 	cout << "\n\n*-------------------------------------------------------------------*\n" ;
 	cout << "|                         Employee Directory                        |\n" ;
 	cout << "|                                                                   |\n" ;
-	cout << "|                1    -         Import from file                    |\n" ;	
+	cout << "|                1    -         Import from File                    |\n" ;	
 	cout << "|                2    -           View Employees                    |\n" ;	
 	cout << "|                3    -             Add Employee                    |\n" ;	
 	cout << "|                4    -          Remove Employee                    |\n" ;	
@@ -37,7 +37,7 @@ void Interface::print_printSubMenu_2(){
 	cout << "|                            Print Menu                             |\n" ;
 	cout << "|                                                                   |\n" ;
 	cout << "|                1    -                 List All                    |\n" ;	
-	cout << "|                2    -       List By Department                    |\n" ;	
+	cout << "|                2    -       List by Department                    |\n" ;	
 	cout << "|                                                                   |\n" ;	
 	cout << "|                                                                   |\n" ;	
 	cout << "*-------------------------------------------------------------------*\n\n\n" ;
@@ -47,9 +47,9 @@ void Interface::print_printSubMenu_3(){
 	cout << "\n\n*-------------------------------------------------------------------*\n" ;
 	cout << "|                             Sort Menu                             |\n" ;
 	cout << "|                                                                   |\n" ;
-	cout << "|                1    -             Sort By Name                    |\n" ;	
-	cout << "|                2    -           Sort By Salary                    |\n" ;	
-	cout << "|                3    -        Sort By Hire Date                    |\n" ;	
+	cout << "|                1    -             Sort by Name                    |\n" ;	
+	cout << "|                2    -           Sort by Salary                    |\n" ;	
+	cout << "|                3    -        Sort by Hire Date                    |\n" ;	
 	cout << "|                                                                   |\n" ;	
 	cout << "|                                                                   |\n" ;	
 	cout << "*-------------------------------------------------------------------*\n\n\n" ;
@@ -59,8 +59,8 @@ void Interface::print_printSubMenu_4(){
 	cout << "\n\n*-------------------------------------------------------------------*\n" ;
 	cout << "|                             Sort Menu                             |\n" ;
 	cout << "|                                                                   |\n" ;
-	cout << "|                1    -              High to Low                    |\n" ;	
-	cout << "|                2    -              Low to High                    |\n" ;	
+	cout << "|                1    -        Greatest to Least                    |\n" ;	
+	cout << "|                2    -        Least to Greatest                    |\n" ;	
 	cout << "|                                                                   |\n" ;	
 	cout << "|                                                                   |\n" ;	
 	cout << "*-------------------------------------------------------------------*\n\n\n" ;
