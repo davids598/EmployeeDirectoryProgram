@@ -145,16 +145,23 @@ void Interface::print(){
 			while(input2 != "1" && input2 != "2"){
 				cout << "\n\n**Error** - Invalid Input, enter a single digit 1-2.\n\n" ;
 				getline(cin, input2) ;
+			}	
+			if(input == "1"){
+				if(input2 == "1") t->print(new sortByName(new treePrint())) ;
+				else if(input2 == "2") t->print(new sortByName(new LowToHigh(new treePrint()))) ;
+				else cout << "\n\n**Error** - Print failed.\n\n" ;
 			}
-			if(input == "1" && input2 == "1") t->print(new sortByName(new listPrint())) ; 	
-			else if(input == "1" && input2 == "2") t->print(new sortByName(new LowToHigh(new listPrint()))) ;
-			else if(input == "2" && input2 == "1") t->print(new sortBySalary(new listPrint())) ;
-			else if(input == "2" && input2 == "2") t->print(new sortBySalary(new LowToHigh(new listPrint()))) ;
-			else if(input == "3" && input2 == "1") t->print(new sortByHireDate(new listPrint())) ;
-			else if(input == "3" && input2 == "2") t->print(new sortByHireDate(new LowToHigh(new listPrint()))) ;
-			else{
-				cout << "\n\n**Error** - Print Failed\n\n" ;
+			else if(input == "2"){
+				if(input2 == "1") t->print(new sortBySalary(new treePrint())) ;
+				else if(input2 == "2") t->print(new sortBySalary(new LowToHigh(new treePrint()))) ;
+				else cout << "\n\n**Error** - Print failed.\n\n" ;
 			}
+			else if(input == "3"){
+				if(input2 == "1") t->print(new sortByHireDate(new treePrint())) ;
+				else if(input2 == "2") t->print(new sortByHireDate(new LowToHigh(new treePrint()))) ;
+				else cout << "\n\n**Error** - Print failed.\n\n" ;
+			}
+			else cout << "\n\n**Error** - Print Failed\n\n" ;
 			delete t ;
 		}
 	}
