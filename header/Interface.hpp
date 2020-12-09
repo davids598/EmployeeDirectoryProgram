@@ -14,8 +14,7 @@ class Interface{
 		void print_printSubMenu_1() ;
 		void print_printSubMenu_2() ;
 		void print_printSubMenu_3() ;
-		void print_printSubMenu_4() ;
-		void print_printSubMenu_5() ;
+		void print_printSubMenu_4() ;	
 		void add() ;
 		void modify() ;
 		void remove() ;
