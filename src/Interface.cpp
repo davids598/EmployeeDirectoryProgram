@@ -177,18 +177,42 @@ void Interface::print(){
 			cout << "\n\n**Error** - Invalid Input, enter a single digit 1-2.\n\n" ;
 			getline(cin, input4) ;
 		}
-                     if(input2 == "1" && input3 == "1" && input4 == "1") e->print(new sortByName(new listPrint())) ;
-		else if(input2 == "1" && input3 == "1" && input4 == "2") e->print(new sortByName(new LowToHigh(new listPrint()))) ;
-		else if(input2 == "1" && input3 == "2" && input4 == "1") e->print(new sortBySalary(new listPrint())) ;
-		else if(input2 == "1" && input3 == "2" && input4 == "2") e->print(new sortBySalary(new LowToHigh(new listPrint()))) ;
-		else if(input2 == "1" && input3 == "3" && input4 == "1") e->print(new sortByHireDate(new listPrint())) ;
-		else if(input2 == "1" && input3 == "3" && input4 == "2") e->print(new sortByHireDate(new LowToHigh(new listPrint()))) ;
-		else if(input2 == "2" && input3 == "1" && input4 == "1") e->print(new sortByName(new treePrint())) ;
-		else if(input2 == "2" && input3 == "1" && input4 == "2") e->print(new sortByName(new LowToHigh(new treePrint()))) ;
-		else if(input2 == "2" && input3 == "2" && input4 == "1") e->print(new sortBySalary(new treePrint())) ;
-		else if(input2 == "2" && input3 == "2" && input4 == "2") e->print(new sortBySalary(new LowToHigh(new treePrint()))) ;
-		else if(input2 == "2" && input3 == "3" && input4 == "1") e->print(new sortByHireDate(new treePrint())) ;
-		else if(input2 == "2" && input3 == "3" && input4 == "2") e->print(new sortByHireDate(new LowToHigh(new treePrint()))) ; 
+		if(input2 == "1"){
+			if(input3 == "1"){
+				if(input4 == "1") e->print(new sortByName(new listPrint())) ;
+				else if(input4 == "2") e->print(new sortByName(new LowToHigh(new listPrint()))) ;
+				else cout << "\n\n**Error** - Print failed.\n\n" ;
+			}
+			else if(input3 == "2"){
+				if(input4 == "1") e->print(new sortBySalary(new listPrint())) ;
+				else if(input4 == "2") e->print(new sortBySalary(new LowToHigh(new listPrint()))) ;
+				else cout << "\n\n**Error** - Print failed.\n\n" ;
+			}
+			else if(input4 == "3"){
+				if(input4 == "1") e->print(new sortByHireDate(new listPrint())) ;
+				else if(input4 == "2") e->print(new sortByHireDate(new LowToHigh(new listPrint()))) ;
+				else cout << "\n\n**Error** - Print failed.\n\n" ;
+			}
+			else cout << "\n\n**Error** - Print failed.\n\n" ;
+	    	}
+		else if(input2 == "2"){
+			if(input3 == "1"){
+				if(input4 == "1") e->print(new sortByName(new treePrint())) ;
+				else if(input4 == "2") e->print(new sortByName(new LowToHigh(new treePrint()))) ;
+				else cout << "\n\n**Error** - Print failed.\n\n" ;
+			}
+			else if(input3 == "2"){
+				if(input4 == "1") e->print(new sortBySalary(new treePrint())) ;
+				else if(input4 == "2") e->print(new sortBySalary(new LowToHigh(new treePrint()))) ;
+				else cout << "\n\n**Error** - Print failed.\n\n" ;
+			}
+			else if(input4 == "3"){
+				if(input4 == "1") e->print(new sortByHireDate(new listPrint())) ;
+				else if(input4 == "2") e->print(new sortByHireDate(new LowToHigh(new treePrint()))) ;
+				else cout << "\n\n**Error** - Print failed.\n\n" ;
+			}
+			else cout << "\n\n**Error** - Print failed.\n\n" ;
+	    	}
 		else cout << "\n\n**Error** - Print failed.\n\n" ;
 	}
 }
