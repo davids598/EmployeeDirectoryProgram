@@ -33,9 +33,8 @@ public:
     vector<Employee*>* getDirectory() { return &this->directory ; } 
     map<string, vector<Employee*>>* getMap() { return &this->departmentMap ; } 
     void print(Printer* p);
-    ~employeeDirectory(){
-	for(int i = 0 ; i < this->directory.size() ; i++) delete this->directory.at(i) ;
-    }
+    void cleanup() { for(auto it : this->directory) delete it ; }
+    ~employeeDirectory() { }
 };
 
 #endif

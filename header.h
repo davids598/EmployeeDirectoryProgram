@@ -4,5 +4,8 @@
 #include "header/Employee.hpp"
 #include "header/employeeDirectory.hpp"
 #include "header/Printer.hpp"
+#include "header/Interface.hpp"
+
+using namespace std ;
 
 #endif

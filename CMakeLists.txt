@@ -10,6 +10,7 @@ ADD_EXECUTABLE(main
 	src/Employee.cpp
 	src/employeeDirectory.cpp
 	src/Printer.cpp
+	src/Interface.cpp
 )
 ADD_EXECUTABLE(test
 	test.cpp
@@ -17,6 +18,7 @@ ADD_EXECUTABLE(test
 	src/Employee.cpp
 	src/employeeDirectory.cpp
 	src/Printer.cpp
+	src/Interface.cpp
 )
 
 TARGET_LINK_LIBRARIES(test gtest)

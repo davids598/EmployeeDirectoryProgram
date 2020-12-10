@@ -80,6 +80,7 @@ void employeeDirectory::removeEmployee(Employee* e) {
 void employeeDirectory::print(Printer* _p) {
 	this->printStrat = _p ;
 	this->printStrat->print(this) ;
+	delete this->printStrat ;
 }
 
 vector<string> employeeDirectory::getDepartments(){

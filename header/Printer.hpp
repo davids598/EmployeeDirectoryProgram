@@ -14,21 +14,21 @@ class Printer {
 
 class listPrint : public Printer {
         public:
-		~listPrint() { }  ;
+		~listPrint() { }
                 virtual void print(employeeDirectory* d) ;       
 } ;
 
 class treePrint : public Printer {
         public:
-                ~treePrint() { } ;
+                ~treePrint() { } 
                 virtual void print(employeeDirectory* d) ;
 } ;
 
 class sortDecorator : public Printer {
         public:
-                sortDecorator(Printer* _p) { this->p = _p ; } ;
+                sortDecorator(Printer* _p) { this->p = _p ; }
 		virtual ~sortDecorator() { delete this->p ; }
-                virtual void print(employeeDirectory* d) { this->p->print(d) ; } ;            
+                virtual void print(employeeDirectory* d) { this->p->print(d) ; }
         protected:
                 Printer* p ;
 } ;
@@ -36,14 +36,14 @@ class sortDecorator : public Printer {
 class sortBySalary : public sortDecorator {
         public:
                 sortBySalary(Printer* _p) : sortDecorator(_p) { }
-                ~sortBySalary() { }
+                ~sortBySalary() { } 
                 virtual void print(employeeDirectory* d) ;
 } ;
 
 class sortByName : public sortDecorator{
         public:
                 sortByName(Printer* _p) : sortDecorator(_p) { }
-                ~sortByName() { } ;
+                ~sortByName() { } 
                 virtual void print(employeeDirectory* d) ;
 } ;
 

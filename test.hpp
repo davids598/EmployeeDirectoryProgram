@@ -83,7 +83,7 @@ TEST(PrintTestSuite, manyEmployees_treePrint){
 	EXPECT_EQ(output, e_output) ;
 }
 
-TEST(sortTestSuit, sortByName_listPrint){	
+TEST(sortTestSuite, sortByName_listPrint){	
 	Employee* t = new Employee("John", "Smith", "Jr. Software Engineer", 50000, 12, 8, 2007, "Programming") ;
 	Employee* t1 = new Employee("Jean", "Smith", "Software Analyst", 60000, 5, 22, 2002, "Programming") ;
 	Employee* t2 = new Employee("Jerry", "Smith", "Senior Software Engineer", 90000, 11, 11, 1997, "Programming") ;
@@ -108,7 +108,7 @@ TEST(sortTestSuit, sortByName_listPrint){
 	EXPECT_EQ(output, e_output) ;
 }
 
-TEST(sortTestSuit, sortByName_treePrint){
+TEST(sortTestSuite, sortByName_treePrint){
 	Employee* t = new Employee("John", "Smith", "Jr. Software Engineer", 50000, 12, 8, 2007, "Programming") ;
 	Employee* t1 = new Employee("Jean", "Smith", "Software Analyst", 60000, 5, 22, 2002, "Programming") ;
 	Employee* t2 = new Employee("Jerry", "Smith", "Senior Software Engineer", 90000, 11, 11, 1997, "Programming") ;
@@ -133,7 +133,7 @@ TEST(sortTestSuit, sortByName_treePrint){
 	EXPECT_EQ(output, e_output) ;
 }
 
-TEST(sortTestSuit, sortBySalary_listPrint){	
+TEST(sortTestSuite, sortBySalary_listPrint){	
 	Employee* t = new Employee("John", "Smith", "Jr. Software Engineer", 50000, 12, 8, 2007, "Programming") ;
 	Employee* t1 = new Employee("Jean", "Smith", "Software Analyst", 60000, 5, 22, 2002, "Programming") ;
 	Employee* t2 = new Employee("Jerry", "Smith", "Senior Software Engineer", 90000, 11, 11, 1997, "Programming") ;
@@ -158,7 +158,7 @@ TEST(sortTestSuit, sortBySalary_listPrint){
 	EXPECT_EQ(output, e_output) ;
 }
 
-TEST(sortTestSuit, sortBySalary_treePrint){
+TEST(sortTestSuite, sortBySalary_treePrint){
 	Employee* t = new Employee("John", "Smith", "Jr. Software Engineer", 50000, 12, 8, 2007, "Programming") ;
 	Employee* t1 = new Employee("Jean", "Smith", "Software Analyst", 60000, 5, 22, 2002, "Programming") ;
 	Employee* t2 = new Employee("Jerry", "Smith", "Senior Software Engineer", 90000, 11, 11, 1997, "Programming") ;
@@ -183,7 +183,7 @@ TEST(sortTestSuit, sortBySalary_treePrint){
 	EXPECT_EQ(output, e_output) ;
 }
 
-TEST(sortTestSuit, sortByHireDate_listPrint){	
+TEST(sortTestSuite, sortByHireDate_listPrint){	
 	Employee* t = new Employee("John", "Smith", "Jr. Software Engineer", 50000, 12, 8, 2007, "Programming") ;
 	Employee* t1 = new Employee("Jean", "Smith", "Software Analyst", 60000, 5, 22, 2002, "Programming") ;
 	Employee* t2 = new Employee("Jerry", "Smith", "Senior Software Engineer", 90000, 11, 11, 1997, "Programming") ;
@@ -214,7 +214,7 @@ TEST(sortTestSuit, sortByHireDate_listPrint){
 	EXPECT_EQ(output, e_output) ;
 }
 
-TEST(sortTestSuit, sortByHireDate_treePrint){
+TEST(sortTestSuite, sortByHireDate_treePrint){
 	Employee* t = new Employee("John", "Smith", "Jr. Software Engineer", 50000, 12, 8, 2007, "Programming") ;
 	Employee* t1 = new Employee("Jean", "Smith", "Software Analyst", 60000, 5, 22, 2002, "Programming") ;
 	Employee* t2 = new Employee("Jerry", "Smith", "Senior Software Engineer", 90000, 11, 11, 1997, "Programming") ;
@@ -245,7 +245,7 @@ TEST(sortTestSuit, sortByHireDate_treePrint){
 	EXPECT_EQ(output, e_output) ;
 }
 
-TEST(sortTestSuit, LowToHigh_listPrint){	
+TEST(sortTestSuite, LowToHigh_listPrint){	
 	Employee* t = new Employee("John", "Smith", "Jr. Software Engineer", 50000, 12, 8, 2007, "Programming") ;
 	Employee* t1 = new Employee("Jean", "Smith", "Software Analyst", 60000, 5, 22, 2002, "Programming") ;
 	Employee* t2 = new Employee("Jerry", "Smith", "Senior Software Engineer", 90000, 11, 11, 1997, "Programming") ;
@@ -283,7 +283,7 @@ TEST(sortTestSuit, LowToHigh_listPrint){
 	EXPECT_EQ(output, e_output) ;
 }
 
-TEST(sortTestSuit, LowToHigh_treePrint){
+TEST(sortTestSuite, LowToHigh_treePrint){
 	Employee* t = new Employee("John", "Smith", "Jr. Software Engineer", 50000, 12, 8, 2007, "Programming") ;
 	Employee* t1 = new Employee("Jean", "Smith", "Software Analyst", 60000, 5, 22, 2002, "Programming") ;
 	Employee* t2 = new Employee("Jerry", "Smith", "Senior Software Engineer", 90000, 11, 11, 1997, "Programming") ;
