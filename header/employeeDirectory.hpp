@@ -36,6 +36,7 @@ public:
     void cleanup() { for(auto it : this->directory) delete it ; }
     ~employeeDirectory() { }
     void writeToFile();
+    void readFromFile();
 };
 
 #endif

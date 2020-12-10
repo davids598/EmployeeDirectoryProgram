@@ -107,8 +107,10 @@ void Interface::add(){
 	std::cout << "Format: FirstName lastName" << std::endl;
 	cin >> fName, lName;
 	std::cout << "Enter the department for the new employee" << std::endl;
+	cin.ignore(); //Might need to remove, supposed to move past newline that is just created on the line of output text before
 	getline(cin, dpmt);
 	std::cout << "Enter the job title for the new employee" << std::endl;
+	cin.ignore(); //Might need to remove, supposed to move past newline that is just created on the line of output text before
 	getline(cin, title);
 	std::cout << "Enter the employee's salary" << std::endl;
 	cin >> slry;
@@ -268,6 +270,8 @@ void Interface::print(){
 }
 
 void Interface::readFromFile(){
+	std::cout << "Attempting to read from file" << std::endl;
+	this->e->readFromFile();
 }
 
 void Interface::writeToFile(){

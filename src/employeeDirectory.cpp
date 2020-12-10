@@ -136,7 +136,6 @@ void employeeDirectory::editEmployee(Employee* e) {
      }
 }
 
-
 void employeeDirectory::writeToFile() {
     ofstream outFS;
     outFS.open("outputFile.txt");
@@ -150,6 +149,39 @@ void employeeDirectory::writeToFile() {
 
     }
     outFS.close();
+}
+
+void employeeDirectory::readFromFile() {
+    ifstream inFS;
+    inFS.open("outputFile.txt");
+    if (!inFS.is_open()) {
+        cout << "An ouput file was not found" << endl;
+        return;
+    }
+    //If file opens properly, read employees from File
+    //Employee::Employee(string fName, string lName, string t, double d, int m, int day, int y, string _department)
+    string fName, lName, title, department;
+    int m, d, y;
+    double salary;
+    while (!inFS.eof()) {
+        //Go through the file and get data for each employee, create a pointer to that employee and add the employee to the Directory
+        inFS >> fName, lName;
+        inFS.ignore();
+        getline(inFS, department);
+        getline(inFS, title);
+        m = inFS.get();
+        inFS.ignore();
+        d = inFS.get();
+        inFS.ignore();
+        y = inFS.get();
+        inFS.ignore(); //ignore final newline
+        inFS >> salary;
+        inFS.ignore();
+
+        //Got all employee data, now to create object and add to Directory
+        Employee* temp = new Employee(fName, lName, title, salary, m, d, y, department);
+        this->addEmployee(temp);
+    }
 }
 
 #endif
