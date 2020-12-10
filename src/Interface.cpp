@@ -8,15 +8,15 @@ void Interface::print_mainMenu(){
 	cout << "\n\n*-------------------------------------------------------------------*\n" ;
 	cout << "|                         Employee Directory                        |\n" ;
 	cout << "|                                                                   |\n" ;
-	cout << "|                1    -         Import from File                    |\n" ;	
-	cout << "|                2    -           View Employees                    |\n" ;	
-	cout << "|                3    -             Add Employee                    |\n" ;	
-	cout << "|                4    -          Remove Employee                    |\n" ;	
-	cout << "|                5    -          Modify Employee                    |\n" ;	
-	cout << "|                6    -             Save to File                    |\n" ;	
-	cout << "|                7    -                     Exit                    |\n" ;	
-	cout << "|                                                                   |\n" ;	
-	cout << "|                                                                   |\n" ;	
+	cout << "|                1    -         Import from File                    |\n" ;
+	cout << "|                2    -           View Employees                    |\n" ;
+	cout << "|                3    -             Add Employee                    |\n" ;
+	cout << "|                4    -          Remove Employee                    |\n" ;
+	cout << "|                5    -          Modify Employee                    |\n" ;
+	cout << "|                6    -             Save to File                    |\n" ;
+	cout << "|                7    -                     Exit                    |\n" ;
+	cout << "|                                                                   |\n" ;
+	cout << "|                                                                   |\n" ;
 	cout << "*-------------------------------------------------------------------*\n\n\n" ;
 }
 
@@ -24,11 +24,11 @@ void Interface::print_printSubMenu_1(){
 	cout << "\n\n*-------------------------------------------------------------------*\n" ;
 	cout << "|                            Print Menu                             |\n" ;
 	cout << "|                                                                   |\n" ;
-	cout << "|                1    -            All Employees                    |\n" ;	
+	cout << "|                1    -            All Employees                    |\n" ;
 	cout << "|                2    -          Single Employee                    |\n" ;
-	cout << "|                3    -        Single Department                    |\n" ;	
-	cout << "|                                                                   |\n" ;	
-	cout << "|                                                                   |\n" ;	
+	cout << "|                3    -        Single Department                    |\n" ;
+	cout << "|                                                                   |\n" ;
+	cout << "|                                                                   |\n" ;
 	cout << "*-------------------------------------------------------------------*\n\n\n" ;
 }
 
@@ -36,10 +36,10 @@ void Interface::print_printSubMenu_2(){
 	cout << "\n\n*-------------------------------------------------------------------*\n" ;
 	cout << "|                            Print Menu                             |\n" ;
 	cout << "|                                                                   |\n" ;
-	cout << "|                1    -                 List All                    |\n" ;	
-	cout << "|                2    -       List by Department                    |\n" ;	
-	cout << "|                                                                   |\n" ;	
-	cout << "|                                                                   |\n" ;	
+	cout << "|                1    -                 List All                    |\n" ;
+	cout << "|                2    -       List by Department                    |\n" ;
+	cout << "|                                                                   |\n" ;
+	cout << "|                                                                   |\n" ;
 	cout << "*-------------------------------------------------------------------*\n\n\n" ;
 }
 
@@ -47,11 +47,11 @@ void Interface::print_printSubMenu_3(){
 	cout << "\n\n*-------------------------------------------------------------------*\n" ;
 	cout << "|                             Sort Menu                             |\n" ;
 	cout << "|                                                                   |\n" ;
-	cout << "|                1    -             Sort by Name                    |\n" ;	
-	cout << "|                2    -           Sort by Salary                    |\n" ;	
-	cout << "|                3    -        Sort by Hire Date                    |\n" ;	
-	cout << "|                                                                   |\n" ;	
-	cout << "|                                                                   |\n" ;	
+	cout << "|                1    -             Sort by Name                    |\n" ;
+	cout << "|                2    -           Sort by Salary                    |\n" ;
+	cout << "|                3    -        Sort by Hire Date                    |\n" ;
+	cout << "|                                                                   |\n" ;
+	cout << "|                                                                   |\n" ;
 	cout << "*-------------------------------------------------------------------*\n\n\n" ;
 }
 
@@ -59,10 +59,10 @@ void Interface::print_printSubMenu_4(){
 	cout << "\n\n*-------------------------------------------------------------------*\n" ;
 	cout << "|                             Sort Menu                             |\n" ;
 	cout << "|                                                                   |\n" ;
-	cout << "|                1    -        Greatest to Least                    |\n" ;	
-	cout << "|                2    -        Least to Greatest                    |\n" ;	
-	cout << "|                                                                   |\n" ;	
-	cout << "|                                                                   |\n" ;	
+	cout << "|                1    -        Greatest to Least                    |\n" ;
+	cout << "|                2    -        Least to Greatest                    |\n" ;
+	cout << "|                                                                   |\n" ;
+	cout << "|                                                                   |\n" ;
 	cout << "*-------------------------------------------------------------------*\n\n\n" ;
 }
 
@@ -95,16 +95,59 @@ void Interface::mainMenu(){
 		}
 		this->print_mainMenu() ;
 	}
-	std::cout << "\n\n\n\nTerminating\n" ;	
+	std::cout << "\n\n\n\nTerminating\n" ;
 }
 
-void Interface::add(){	
+void Interface::add(){
+	string fName, lName, title, dpmt;
+	int m, d, y;
+	double slry;
+	std::cout << "You are attempting to add an employee to the directory" << std::endl;
+	std::cout << "Enter the name of the employee you would like to edit" << std::endl;
+	std::cout << "Format: FirstName lastName" << std::endl;
+	cin >> fName, lName;
+	std::cout << "Enter the department for the new employee" << std::endl;
+	getline(cin, dpmt);
+	std::cout << "Enter the job title for the new employee" << std::endl;
+	getline(cin, title);
+	std::cout << "Enter the employee's salary" << std::endl;
+	cin >> slry;
+	std::cout << "Enter the employee's hire date\n The format is month day year" << std::endl;
+	cin >> m, d, y;
+	//Employee::Employee(string fName, string lName, string t, double d, int m, int day, int y, string _department)
+	Employee* newEmployee = new Employee(fName, lName, title, slry, m, d, y, dpmt);
+	e->addEmployee(newEmployee);
 }
 
 void Interface::remove(){
+	std::cout << "Enter the name of the employee you would like to remove" << std::endl;
+	std::cout << "Format: FirstName lastName" << std::endl;
+	string fName, lName, fullName;
+	cin >> fName, lName;
+	fullName = fName + " " + lName;
+	Employee* temp = e->getEmployee(fullName);
+	if (temp == nullptr) {
+		std::cout << "The employee you were looking to remove is not in the database" << std::endl;
+	}
+	else {
+		e->removeEmployee(temp);
+		std::cout << "The employee was found and removed" << std::endl;
+	}
 }
 
 void Interface::modify(){
+	std::cout << "Enter the name of the employee you would like to edit" << std::endl;
+	std::cout << "Format: FirstName lastName" << std::endl;
+	string fName, lName, fullName;
+	cin >> fName, lName;
+	fullName = fName + " " + lName;
+	Employee* temp = e->getEmployee(fullName);
+	if (temp == nullptr) {
+		std::cout << "The employee you were looking to edit is not in the database" << std::endl;
+	}
+	else {
+		e->editEmployee(temp);
+	}
 }
 
 void Interface::print(){
@@ -118,7 +161,7 @@ void Interface::print(){
 			employeeDirectory* t = new employeeDirectory(this->e->getEmployee(input)) ;
 			t->print(new listPrint()) ;
 			delete t ;
-		}	
+		}
 		else{
 			cout << "\n\n**Error** - Employee \"" << input << "\" was not found in the Directory.\n\n" ;
 			return ;
@@ -133,7 +176,7 @@ void Interface::print(){
 			return ;
 		}
 		else{
-			employeeDirectory* t = new employeeDirectory(this->e->getMap()->at(input)) ;	
+			employeeDirectory* t = new employeeDirectory(this->e->getMap()->at(input)) ;
 			this->print_printSubMenu_3() ;
 			getline(cin, input) ;
 			while(input != "1" && input != "2" && input != "3"){
@@ -145,7 +188,7 @@ void Interface::print(){
 			while(input2 != "1" && input2 != "2"){
 				cout << "\n\n**Error** - Invalid Input, enter a single digit 1-2.\n\n" ;
 				getline(cin, input2) ;
-			}	
+			}
 			if(input == "1"){
 				if(input2 == "1") t->print(new sortByName(new treePrint())) ;
 				else if(input2 == "2") t->print(new sortByName(new LowToHigh(new treePrint()))) ;
@@ -228,6 +271,7 @@ void Interface::readFromFile(){
 }
 
 void Interface::writeToFile(){
+	std::cout << "Attempting to write to file" << std::endl;
+	this->e->writeToFile();
+	std::cout << "Wrote employee directory to file" << std::endl;
 }
-
-

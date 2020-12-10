@@ -30,11 +30,12 @@ public:
     void editEmployee(Employee* e);
     void sortEmployees();
     vector<string> getDepartments() ;
-    vector<Employee*>* getDirectory() { return &this->directory ; } 
-    map<string, vector<Employee*>>* getMap() { return &this->departmentMap ; } 
+    vector<Employee*>* getDirectory() { return &this->directory ; }
+    map<string, vector<Employee*>>* getMap() { return &this->departmentMap ; }
     void print(Printer* p);
     void cleanup() { for(auto it : this->directory) delete it ; }
     ~employeeDirectory() { }
+    void writeToFile();
 };
 
 #endif

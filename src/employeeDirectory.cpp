@@ -5,6 +5,7 @@
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <fstream>
 #include "../header/employeeDirectory.hpp"
 #include "../header/Printer.hpp"
 #include "../header/Employee.hpp"
@@ -21,7 +22,7 @@ employeeDirectory::employeeDirectory(vector<Employee*> d) {
     this->CEOPointer = d.at(0);
     for (int i = 0; i < d.size(); ++i) {
         directory.push_back(d.at(i));
-	string key = directory.back()->getDepartment() ;	
+	string key = directory.back()->getDepartment() ;
 	std::transform(key.begin(), key.end(), key.begin(), ::toupper) ;
 	departmentMap[key].push_back(d.at(i)) ;
     }
@@ -74,7 +75,7 @@ void employeeDirectory::removeEmployee(Employee* e) {
 		departmentMap[key].erase(departmentMap[key].begin() + j) ;
 		break ;
 	}
-   }	
+   }
 }
 
 void employeeDirectory::print(Printer* _p) {
@@ -124,9 +125,9 @@ void employeeDirectory::editEmployee(Employee* e) {
         else if (choice == 4) {
             int d, m, y;
             cout << "Enter the employee's new hire date\n"
-            << "The format is day month year" << endl;
-            cin >> d >> m >> y;
-            Date* temp = new Date(d, m , y);
+            << "The format is month day year" << endl;
+            cin >> m >> d >> y;
+            Date* temp = new Date(m, d , y);
             e->setHireDate(temp);
         }
         else {
@@ -135,5 +136,20 @@ void employeeDirectory::editEmployee(Employee* e) {
      }
 }
 
+
+void employeeDirectory::writeToFile() {
+    ofstream outFS;
+    outFS.open("outputFile.txt");
+    for (unsigned i = 0; i < directory.size(); ++i) {
+        Employee* temp = directory.at(i);
+        outFS << temp->getName()     << "\n" ;
+        outFS << temp->getDepartment() << "\n" ;
+        outFS << temp->getTitle()    << "\n" ;
+        outFS  << *(temp->getHireDate()) << "\n" ;
+        outFS  << temp->getSalary() << "\n" ;
+
+    }
+    outFS.close();
+}
 
 #endif
