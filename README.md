@@ -16,14 +16,7 @@ Strategy - This program will make use of the strategy design pattern by implemen
 
  In this program, we will use the strategy design pattern to implement the sorting function as well as our print function to display the data.  The employeeDirectory class will rely on a vector of Employee object pointers to store different types of employees.  The user will be able to sort the employees in 3 different ways, by name, salary, or department.  The user will also be able to print in 3 different ways.  They can print a single employee, a whole department, or the entire directory.  An administrator, someone who has logged into the program with credentials, can add employees, remove employees, or modify existing employees.
  
- > ## Phase III
- > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
- > * Before the meeting you should perform a sprint plan like you did in Phase II
- > * In the meeting with your TA you will discuss: 
- >   - How effective your last sprint was (each member should talk about what they did)
- >   - Any tasks that did not get completed last sprint, and how you took them into consideration for this sprint
- >   - Any bugs you've identified and created issues for during the sprint. Do you plan on fixing them in the next sprint or are they lower priority?
- >   - What tasks you are planning for this next sprint.
+ I (Sean) ended up implementing the print function as a strategy pattern, with a decorator pattern to add different ways of printing.
 
  > ## Final deliverable
  > All group members will give a demo to the TA during lab time. The TA will check the demo and the project GitHub repository and ask a few questions to all the team members. 
@@ -31,9 +24,24 @@ Strategy - This program will make use of the strategy design pattern by implemen
  > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
  > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Kanban board. 
  ## Screenshots
- > Screenshots of the input/output after running your application
+ ![Main menu](https://github.com/cs100/final-project-sspon001/blob/master/images/mainmenu.png)
+ 
+ ![list print](https://github.com/cs100/final-project-sspon001/blob/master/images/listPrint.png)
+ 
+ ![tree print](https://github.com/cs100/final-project-sspon001/blob/master/images/treePrint.png)
+ 
+ ![last](https://github.com/cs100/final-project-sspon001/blob/master/images/exportAndValgrind.png)
+ 
  ## Installation/Usage
- > Instructions on installing and running your application
+ Simply type ./main to run the program
+ A user can import employees from a file called "outputFile.txt", or add employees directly through the program.
+ Once there are employees loaded, the user can view, modify, or remove them.  
+ There are a variety of ways the user can view the employees, but it can broken down as the following:
+ The user can print all employees in a list, or group them by department.
+ For any print, the user can sort the employees by name, salary, or hire date.
+ Additionally, the user can sort the employees from Least to Greatest and Greatest to Least
+ At any time, the user is able to save the current directory to a text file, outputFile.txt, and load it again for later use.
+ 
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
  
