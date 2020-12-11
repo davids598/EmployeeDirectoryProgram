@@ -14,6 +14,7 @@ class Date {
                 Date(int month, int day, int year);
 		friend bool operator > (const Date& a, const Date& b) ;
 		friend ostream & operator << (ostream &out, const Date &_date) ;
+        string outputForFile();
 };
 
 #endif

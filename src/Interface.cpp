@@ -134,7 +134,7 @@ void Interface::remove(){
 		std::cout << "The employee you were looking to remove is not in the database" << std::endl;
 	}
 	else {
-		std::cout << "Got to here";
+		//std::cout << "Got to here";
 		e->removeEmployee(temp);
 		std::cout << "The employee was found and removed" << std::endl;
 	}

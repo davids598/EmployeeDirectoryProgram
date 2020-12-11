@@ -70,12 +70,12 @@ void employeeDirectory::removeEmployee(Employee* e) {
     transform(key.begin(), key.end(), key.begin(), ::toupper) ;
     int j = 0 ;
     for(auto it : departmentMap[key]){
-	j++ ;
 	if(it == e){
 		departmentMap[key].erase(departmentMap[key].begin() + j) ;
         delete it ;
 		break ;
 	}
+    j++;
    }
 }
 
@@ -135,7 +135,7 @@ void employeeDirectory::editEmployee(Employee* e) {
             Date* temp = new Date(m, d , y);
             e->setHireDate(temp);
         }
-        else {
+        else if (choice != -1){
             cout << "Your choice was invalid" << endl;
         }
      }
@@ -146,10 +146,11 @@ void employeeDirectory::writeToFile() {
     outFS.open("outputFile.txt");
     for (unsigned i = 0; i < directory.size(); ++i) {
         Employee* temp = directory.at(i);
+        string temp_date = (temp->getHireDate())->outputForFile();
         outFS << temp->getName()     << "\n" ;
         outFS << temp->getDepartment() << "\n" ;
         outFS << temp->getTitle()    << "\n" ;
-        outFS  << *(temp->getHireDate()) << "\n" ;
+        outFS  << temp_date ;
         if (i + 1 == directory.size()) {
             outFS  << temp->getSalary() ;
         }
@@ -164,12 +165,12 @@ void employeeDirectory::readFromFile() {
     ifstream inFS;
     inFS.open("outputFile.txt");
     if (!inFS.is_open()) {
-        cout << "An ouput file was not found" << endl;
+        cout << "An output file was not found" << endl;
         return;
     }
     //If file opens properly, read employees from File
     //Employee::Employee(string fName, string lName, string t, double d, int m, int day, int y, string _department)
-    string fName, lName, title, department;
+    string fName, lName, title, department, tempM, tempD, tempY;
     int m, d, y;
     double salary;
     while (!inFS.eof()) {
@@ -178,14 +179,15 @@ void employeeDirectory::readFromFile() {
         inFS.ignore();
         getline(inFS, department);
         getline(inFS, title);
-        m = inFS.get();
-        inFS.ignore();
-        d = inFS.get();
-        inFS.ignore();
-        y = inFS.get();
-        inFS.ignore(); //ignore final newline
+        getline(inFS, tempM);
+        getline(inFS, tempD);
+        getline(inFS, tempY);
         inFS >> salary;
         inFS.ignore();
+
+        m = stoi(tempM);
+        d = stoi(tempD);
+        y = stoi(tempY);
 
         //Got all employee data, now to create object and add to Directory
         Employee* temp = new Employee(fName, lName, title, salary, m, d, y, department);
