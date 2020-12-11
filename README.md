@@ -45,9 +45,9 @@ Strategy - This program will make use of the strategy design pattern by implemen
    A user can import employees from a file called "outputFile.txt", or add employees directly through the program.\
    Once there are employees loaded, the user can view, modify, or remove them.  \
    There are a variety of ways the user can view the employees, but it can broken down as the following:\
-   The user can print all employees in a list, or group them by department.\
-   For any print, the user can sort the employees by name, salary, or hire date.\
-   Additionally, the user can sort the employees from Least to Greatest and Greatest to Least\
+    - The user can print all employees in a list, or group them by department.\
+    - For any print, the user can sort the employees by name, salary, or hire date.\
+    - Additionally, the user can sort the employees from Least to Greatest or Greatest to Least\
    At any time, the user is able to save the current directory to a text file, outputFile.txt, and load it again for later use.\
  
  ## Testing
