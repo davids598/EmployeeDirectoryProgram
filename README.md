@@ -47,7 +47,7 @@ Decorator - This program implements a decorator pattern to extend the functional
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - The user can print all employees in a list, or group them by department\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - For any print, the user can sort the employees by name, salary, or hire date\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Additionally, the user can sort the employees from Least to Greatest or Greatest to Least\
-   At any time, the user is able to save the current directory to a text file, outputFile.txt, and load it again for later use\
+   At any time, the user is able to save the current directory to a text file, outputFile.txt, and load it again for later use
  
  ## Testing
  This program includes a full test suite for all employee, directory, printing, and sorting related functions using the google test repository\
