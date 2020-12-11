@@ -5,6 +5,7 @@
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <fstream>
 #include "../header/employeeDirectory.hpp"
 #include "../header/Printer.hpp"
 #include "../header/Employee.hpp"
@@ -21,7 +22,7 @@ employeeDirectory::employeeDirectory(vector<Employee*> d) {
     this->CEOPointer = d.at(0);
     for (int i = 0; i < d.size(); ++i) {
         directory.push_back(d.at(i));
-	string key = directory.back()->getDepartment() ;	
+	string key = directory.back()->getDepartment() ;
 	std::transform(key.begin(), key.end(), key.begin(), ::toupper) ;
 	departmentMap[key].push_back(d.at(i)) ;
     }
@@ -59,7 +60,7 @@ void employeeDirectory::removeEmployee(Employee* e) {
     vector<Employee*>::iterator v;
     int position = -1;
     for (unsigned i = 0; i < directory.size(); ++i) {
-        if (e == directory.at(i)) {
+        if (e->getName() == directory.at(i)->getName()) {
             position = i;
         }
     }
@@ -69,12 +70,13 @@ void employeeDirectory::removeEmployee(Employee* e) {
     transform(key.begin(), key.end(), key.begin(), ::toupper) ;
     int j = 0 ;
     for(auto it : departmentMap[key]){
-	j++ ;
 	if(it == e){
 		departmentMap[key].erase(departmentMap[key].begin() + j) ;
+        delete it ;
 		break ;
 	}
-   }	
+    j++;
+   }
 }
 
 void employeeDirectory::print(Printer* _p) {
@@ -100,17 +102,19 @@ void employeeDirectory::editEmployee(Employee* e) {
         << "3. Salary\n"
         << "4. Hire Date" << endl;
         cin >> choice;
+        cin.ignore();
         if (choice == 1) {
             string fName, lName;
             cout << "Enter the employee's new first and last name" << endl;
-            cin >> fName, lName;
+            cin >> fName >> lName;
+            cin.ignore();
             e->setName(fName, lName);
             cout << "Name has been changed!" << endl;
         }
         else if (choice == 2) {
             string title;
             cout << "Enter the employee's new job title" << endl;
-            cin >> title;
+            getline(cin, title);
             e->setTitle(title);
             cout << "Title has been changed!" << endl;
         }
@@ -118,22 +122,77 @@ void employeeDirectory::editEmployee(Employee* e) {
             double salary;
             cout << "Enter the employee's new salary" << endl;
             cin >> salary;
+            cin.ignore();
             e->setSalary(salary);
             cout << "Salary has been set!" << endl;
         }
         else if (choice == 4) {
             int d, m, y;
             cout << "Enter the employee's new hire date\n"
-            << "The format is day month year" << endl;
-            cin >> d >> m >> y;
-            Date* temp = new Date(d, m , y);
+            << "The format is month day year" << endl;
+            cin >> m >> d >> y;
+            cin.ignore();
+            Date* temp = new Date(m, d , y);
             e->setHireDate(temp);
         }
-        else {
+        else if (choice != -1){
             cout << "Your choice was invalid" << endl;
         }
      }
 }
 
+void employeeDirectory::writeToFile() {
+    ofstream outFS;
+    outFS.open("outputFile.txt");
+    for (unsigned i = 0; i < directory.size(); ++i) {
+        Employee* temp = directory.at(i);
+        string temp_date = (temp->getHireDate())->outputForFile();
+        outFS << temp->getName()     << "\n" ;
+        outFS << temp->getDepartment() << "\n" ;
+        outFS << temp->getTitle()    << "\n" ;
+        outFS  << temp_date ;
+        if (i + 1 == directory.size()) {
+            outFS  << temp->getSalary() ;
+        }
+        else {
+            outFS  << temp->getSalary() << "\n" ;
+        }
+    }
+    outFS.close();
+}
+
+void employeeDirectory::readFromFile() {
+    ifstream inFS;
+    inFS.open("outputFile.txt");
+    if (!inFS.is_open()) {
+        cout << "An output file was not found" << endl;
+        return;
+    }
+    //If file opens properly, read employees from File
+    //Employee::Employee(string fName, string lName, string t, double d, int m, int day, int y, string _department)
+    string fName, lName, title, department, tempM, tempD, tempY;
+    int m, d, y;
+    double salary;
+    while (!inFS.eof()) {
+        //Go through the file and get data for each employee, create a pointer to that employee and add the employee to the Directory
+        inFS >> fName >> lName;
+        inFS.ignore();
+        getline(inFS, department);
+        getline(inFS, title);
+        getline(inFS, tempM);
+        getline(inFS, tempD);
+        getline(inFS, tempY);
+        inFS >> salary;
+        inFS.ignore();
+
+        m = stoi(tempM);
+        d = stoi(tempD);
+        y = stoi(tempY);
+
+        //Got all employee data, now to create object and add to Directory
+        Employee* temp = new Employee(fName, lName, title, salary, m, d, y, department);
+        this->addEmployee(temp);
+    }
+}
 
 #endif

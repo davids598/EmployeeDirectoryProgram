@@ -19,7 +19,7 @@ ostream & operator << (ostream &out, const Date &_date){
 }
 
 bool operator > (const Date& a, const Date& b){
-	if(a.y == b.y){	
+	if(a.y == b.y){
 		if(a.m == b.m){
 			if(a.d == b.d) return false ;
 			else if(a.d < b.d) return true ;
@@ -30,6 +30,11 @@ bool operator > (const Date& a, const Date& b){
 	}
 	else if(a.y > b.y) return false ;
 	else return true ;
+}
+
+string Date::outputForFile() {
+    string s = to_string(this->m) + "\n" + to_string(this->d) + "\n" + to_string(this->y) + "\n";
+    return s;
 }
 
 
