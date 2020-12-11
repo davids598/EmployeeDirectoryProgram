@@ -72,7 +72,8 @@ void employeeDirectory::removeEmployee(Employee* e) {
     for(auto it : departmentMap[key]){
 	if(it == e){
 		departmentMap[key].erase(departmentMap[key].begin() + j) ;
-        delete it ;
+		if(departmentMap[key].size() == 0) departmentMap.erase(key) ;
+        	delete it ;
 		break ;
 	}
     j++;
