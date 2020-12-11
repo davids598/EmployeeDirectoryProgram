@@ -81,10 +81,10 @@ void Interface::mainMenu(){
 			this->add() ;
 		}
 		else if(input == "4"){
-			this->modify() ;
+			this->remove() ;
 		}
 		else if(input == "5"){
-			this->remove() ;
+			this->modify() ;
 		}
 		else if(input == "6"){
 			this->writeToFile() ;
@@ -105,17 +105,18 @@ void Interface::add(){
 	std::cout << "You are attempting to add an employee to the directory" << std::endl;
 	std::cout << "Enter the name of the employee you would like to edit" << std::endl;
 	std::cout << "Format: FirstName lastName" << std::endl;
-	cin >> fName, lName;
+	cin >> fName >> lName;
 	std::cout << "Enter the department for the new employee" << std::endl;
 	cin.ignore(); //Might need to remove, supposed to move past newline that is just created on the line of output text before
 	getline(cin, dpmt);
 	std::cout << "Enter the job title for the new employee" << std::endl;
-	cin.ignore(); //Might need to remove, supposed to move past newline that is just created on the line of output text before
+	//cin.ignore(); //Might need to remove, supposed to move past newline that is just created on the line of output text before
 	getline(cin, title);
 	std::cout << "Enter the employee's salary" << std::endl;
 	cin >> slry;
-	std::cout << "Enter the employee's hire date\n The format is month day year" << std::endl;
-	cin >> m, d, y;
+	std::cout << "Enter the employee's hire date\nThe format is month day year" << std::endl;
+	cin >> m >> d >> y;
+	cin.ignore();
 	//Employee::Employee(string fName, string lName, string t, double d, int m, int day, int y, string _department)
 	Employee* newEmployee = new Employee(fName, lName, title, slry, m, d, y, dpmt);
 	e->addEmployee(newEmployee);
@@ -125,13 +126,15 @@ void Interface::remove(){
 	std::cout << "Enter the name of the employee you would like to remove" << std::endl;
 	std::cout << "Format: FirstName lastName" << std::endl;
 	string fName, lName, fullName;
-	cin >> fName, lName;
+	cin >> fName >> lName;
+	cin.ignore();
 	fullName = fName + " " + lName;
 	Employee* temp = e->getEmployee(fullName);
 	if (temp == nullptr) {
 		std::cout << "The employee you were looking to remove is not in the database" << std::endl;
 	}
 	else {
+		std::cout << "Got to here";
 		e->removeEmployee(temp);
 		std::cout << "The employee was found and removed" << std::endl;
 	}
@@ -141,7 +144,8 @@ void Interface::modify(){
 	std::cout << "Enter the name of the employee you would like to edit" << std::endl;
 	std::cout << "Format: FirstName lastName" << std::endl;
 	string fName, lName, fullName;
-	cin >> fName, lName;
+	cin >> fName >> lName;
+	cin.ignore();
 	fullName = fName + " " + lName;
 	Employee* temp = e->getEmployee(fullName);
 	if (temp == nullptr) {
