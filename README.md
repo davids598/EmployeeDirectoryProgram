@@ -24,13 +24,13 @@ Strategy - This program will make use of the strategy design pattern by implemen
  > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
  > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Kanban board. 
  ## Screenshots
- ![Main menu](https://github.com/cs100/final-project-sspon001/blob/master/images/mainmenu.png)
+ ![Main menu](https://github.com/cs100/final-project-sspon001/blob/master/images/mainmenu.PNG)
  
- ![list print](https://github.com/cs100/final-project-sspon001/blob/master/images/listPrint.png)
+ ![list print](https://github.com/cs100/final-project-sspon001/blob/master/images/listPrint.PNG)
  
- ![tree print](https://github.com/cs100/final-project-sspon001/blob/master/images/treePrint.png)
+ ![tree print](https://github.com/cs100/final-project-sspon001/blob/master/images/treePrint.PNG)
  
- ![last](https://github.com/cs100/final-project-sspon001/blob/master/images/exportAndValgrind.png)
+ ![last](https://github.com/cs100/final-project-sspon001/blob/master/images/exportAndValgrind.PNG)
  
  ## Installation/Usage
  Simply type ./main to run the program
