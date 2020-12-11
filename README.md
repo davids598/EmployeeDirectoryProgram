@@ -24,31 +24,31 @@ Strategy - This program will make use of the strategy design pattern by implemen
  > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
  > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Kanban board. 
  ## Screenshots
- ![Main menu](https://github.com/cs100/final-project-sspon001/blob/master/images/mainmenu.PNG)
+ ![Main menu](https://github.com/cs100/final-project-sspon001/blob/master/images/mainmenu.PNG)\
  
- >This is the main menu of the program
+   This is the main menu of the program\\
  
- ![list print](https://github.com/cs100/final-project-sspon001/blob/master/images/listPrint.PNG)
+ ![list print](https://github.com/cs100/final-project-sspon001/blob/master/images/listPrint.PNG)\
  
- >An example of the list Print function
+   An example of the list Print function\\
  
- ![tree print](https://github.com/cs100/final-project-sspon001/blob/master/images/treePrint.PNG)
+ ![tree print](https://github.com/cs100/final-project-sspon001/blob/master/images/treePrint.PNG)\
  
- >An example of the tree Print function
+   An example of the tree Print function\\
  
- ![last](https://github.com/cs100/final-project-sspon001/blob/master/images/exportAndValgrind.PNG)
+ ![last](https://github.com/cs100/final-project-sspon001/blob/master/images/exportAndValgrind.PNG)\
 
->An example of exporting the directory to a text file, and showing that our program is free of memory leaks
+  An example of exporting the directory to a text file, and showing that our program is free of memory leaks\\
  
  ## Installation/Usage
- Simply type ./main to run the program
- A user can import employees from a file called "outputFile.txt", or add employees directly through the program.
- Once there are employees loaded, the user can view, modify, or remove them.  
- There are a variety of ways the user can view the employees, but it can broken down as the following:
- The user can print all employees in a list, or group them by department.
- For any print, the user can sort the employees by name, salary, or hire date.
- Additionally, the user can sort the employees from Least to Greatest and Greatest to Least
- At any time, the user is able to save the current directory to a text file, outputFile.txt, and load it again for later use.
+   Simply type ./main to run the program\
+   A user can import employees from a file called "outputFile.txt", or add employees directly through the program.\
+   Once there are employees loaded, the user can view, modify, or remove them.  \
+   There are a variety of ways the user can view the employees, but it can broken down as the following:\
+   The user can print all employees in a list, or group them by department.\
+   For any print, the user can sort the employees by name, salary, or hire date.\
+   Additionally, the user can sort the employees from Least to Greatest and Greatest to Least\
+   At any time, the user is able to save the current directory to a text file, outputFile.txt, and load it again for later use.\
  
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
