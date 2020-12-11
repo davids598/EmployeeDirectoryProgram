@@ -43,12 +43,12 @@ Strategy - This program will make use of the strategy design pattern by implemen
  ## Installation/Usage
    Simply type ./main to run the program\
    A user can import employees from a file called "outputFile.txt", or add employees directly through the program.\
-   Once there are employees loaded, the user can view, modify, or remove them.  \
+   Once there are employees loaded, the user can view, modify, or remove them.  \\
    There are a variety of ways the user can view the employees, but it can broken down as the following:\
-    - The user can print all employees in a list, or group them by department.\
-    - For any print, the user can sort the employees by name, salary, or hire date.\
-    - Additionally, the user can sort the employees from Least to Greatest or Greatest to Least\
-   At any time, the user is able to save the current directory to a text file, outputFile.txt, and load it again for later use.\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - The user can print all employees in a list, or group them by department.\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - For any print, the user can sort the employees by name, salary, or hire date.\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Additionally, the user can sort the employees from Least to Greatest or Greatest to Least\\
+   At any time, the user is able to save the current directory to a text file, outputFile.txt, and load it again for later use\
  
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
